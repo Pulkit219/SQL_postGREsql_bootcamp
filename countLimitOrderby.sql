@@ -6,3 +6,14 @@ SELECT * FROM payment LIMIT 5;
 SELECT first_name, last_name FROM customer ORDER BY first_name, last_name DESC;
 SELECT first_name, last_name FROM customer ORDER BY first_name DESC;
 
+SELECT * FROM payment;
+SELECT customer_id, amount FROM payment ORDER BY amount DESC LIMIT 10;
+
+SELECT * FROM film;
+SELECT title FROM film ORDER BY film_id LIMIT 5;
+
+SELECT * FROM payment;
+SELECT customer_id, amount FROM payment WHERE amount BETWEEN 5 AND 7;
+SELECT customer_id, amount FROM payment WHERE amount NOT BETWEEN 5 AND 7;
+
+SELECT amount,payment_date FROM payment WHERE payment_date NOT BETWEEN '2007-02-07' AND '2007-02-15'
