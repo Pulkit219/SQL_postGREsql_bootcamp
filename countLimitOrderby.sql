@@ -22,3 +22,15 @@ SELECT * FROM customer;
 SELECT first_name, last_name FROM customer WHERE first_name LIKE '%her%';
 SELECT first_name, last_name FROM customer WHERE first_name LIKE '_her%';
 SELECT first_name, last_name FROM customer WHERE first_name ILIKE '_hEr%';
+
+SELECT * FROM payment;
+SELECT COUNT(DISTINCT amount) FROM payment where amount>5;
+SELECT * FROM actor;
+SELECT COUNT(*) FROM actor WHERE first_name ILIKE 'P%';
+SELECT * FROM address;
+SELECT COUNT(DISTINCT (district)) FROM address;
+SELECT DISTINCT district FROM address;
+
+SELECT * FROM film;
+SELECT COUNT(*) FROM film WHERE rating='R' AND replacement_cost BETWEEN 5 AND 10;
+SELECT title FROM film WHERE title ILIKE '%Truman%';
