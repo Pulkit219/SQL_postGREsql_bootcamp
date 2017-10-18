@@ -29,4 +29,8 @@ SELECT title,name FROM film JOIN language ON film.language_id=language.language_
 --LEFT OUTER JOIN------------------------------------------
 SELECT title,film.film_id, inventory_id FROM film LEFT JOIN inventory ON film.film_id=inventory.film_id WHERE inventory_id IS null ORDER BY film.film_id;
 
+--UNION
 
+--EXTRACTS AND TIMESTAMPS
+SELECT customer_id,extract(day from payment_date) FROM payment;
+SELECT SUM(amount),extract(month from payment_date) AS month FROM payment GROUP BY month;
