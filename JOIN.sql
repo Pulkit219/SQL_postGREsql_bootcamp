@@ -34,3 +34,11 @@ SELECT title,film.film_id, inventory_id FROM film LEFT JOIN inventory ON film.fi
 --EXTRACTS AND TIMESTAMPS
 SELECT customer_id,extract(day from payment_date) FROM payment;
 SELECT SUM(amount),extract(month from payment_date) AS month FROM payment GROUP BY month;
+
+--SUBQUERY
+SELECT title,rental_rate,film_id FROM film WHERE (title ILIKE 'A%' OR title ILIKE 'B%') AND rental_rate>(SELECT AVG(rental_rate) FROM film);
+---------
+SELECT title,film_id FROM film WHERE film_id IN 
+(SELECT film_id FROM inventory JOIN rental ON inventory.inventory_id = rental.inventory_id WHERE return_date BETWEEN '2005-05-29' AND '2005-05-30');
+
+
