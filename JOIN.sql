@@ -41,4 +41,6 @@ SELECT title,rental_rate,film_id FROM film WHERE (title ILIKE 'A%' OR title ILIK
 SELECT title,film_id FROM film WHERE film_id IN 
 (SELECT film_id FROM inventory JOIN rental ON inventory.inventory_id = rental.inventory_id WHERE return_date BETWEEN '2005-05-29' AND '2005-05-30');
 
-
+--SELF JOIN
+SELECT a.first_Name,a.last_name,b.first_name,b.last_name FROM customer as a ,customer as b WHERE a.first_name =b.last_name;
+SELECT first_name, last_name  FROM customer  WHERE first_name =last_name;
