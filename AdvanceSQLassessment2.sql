@@ -1,6 +1,6 @@
-
 --How can you retrieve all the information from the cd.facilities table?
 SELECT * FROM cd.facilities;
+SELECT * FROM cd.bookings;
 
 --You want to print out a list of all of the facilities and their cost to members. How would you retrieve a list of only facility names and costs?
 SELECT name,membercost FROM cd.facilities;
@@ -25,4 +25,20 @@ SELECT  memid, surname, firstname, joindate FROM cd.members WHERE joindate > '20
 SELECT  DISTINCT(surname) FROM cd.members ORDER BY surname LIMIT 10;
 
 --You'd like to get the signup date of your last member. How can you retrieve this information?
+SELECT  memid, surname, firstname, joindate FROM cd.members ORDER BY joindate DESC;
+--OR
+select max(joindate) as latest from cd.members;
 
+--Produce a count of the number of facilities that have a cost to guests of 10 or more.
+SELECT  COUNT(name) FROM cd.facilities WHERE guestcost >=10;
+
+--Produce a list of the total number of slots booked per facility in the month of September 2012. Produce an output table consisting of facility id and slots, sorted by the number of slots.
+SELECT facid,SUM(slots) FROM cd.bookings WHERE starttime BETWEEN '2012-09-01' AND '2012-09-30' GROUP BY facid ORDER BY SUM(slots);
+--OR
+select facid, sum(slots) as "Total Slots" from cd.bookings where starttime >= '2012-09-01' and starttime < '2012-10-01' group by facid order by sum(slots);
+
+
+--Produce a list of facilities with more than 1000 slots booked. Produce an output table consisting of facility id and total slots, sorted by facility id.
+SELECT facid,SUM(slots) AS "Total Slots" FROM cd.bookings GROUP BY facid HAVING SUM(slots)>1000 ORDER BY SUM(slots);
+
+--How can you produce a list of the start times for bookings for tennis courts, for the date '2012-09-21'? Return a list of start time and facility name pairings, ordered by the time.
