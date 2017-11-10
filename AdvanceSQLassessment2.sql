@@ -15,3 +15,14 @@ select facid, name, membercost, monthlymaintenance from cd.facilities where memb
 SELECT name,membercost FROM cd.facilities WHERE name ILIKE '%Tennis%';
 
 --How can you retrieve the details of facilities with ID 1 and 5? Try to do it without using the OR operator.
+SELECT * FROM cd.facilities WHERE facid IN (1,5);
+
+--How can you produce a list of members who joined after the start of September 2012? Return the memid, surname, firstname, and joindate of the members in question.
+SELECT * FROM cd.members;
+SELECT  memid, surname, firstname, joindate FROM cd.members WHERE joindate > '2012-09-01';
+
+--How can you produce an ordered list of the first 10 surnames in the members table? The list must not contain duplicates.
+SELECT  DISTINCT(surname) FROM cd.members ORDER BY surname LIMIT 10;
+
+--You'd like to get the signup date of your last member. How can you retrieve this information?
+
