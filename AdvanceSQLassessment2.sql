@@ -42,3 +42,19 @@ select facid, sum(slots) as "Total Slots" from cd.bookings where starttime >= '2
 SELECT facid,SUM(slots) AS "Total Slots" FROM cd.bookings GROUP BY facid HAVING SUM(slots)>1000 ORDER BY SUM(slots);
 
 --How can you produce a list of the start times for bookings for tennis courts, for the date '2012-09-21'? Return a list of start time and facility name pairings, ordered by the time.
+SELECT * FROM cd.bookings;
+SELECT * FROM cd.facilities;
+SELECT * FROM cd.members;
+SELECT starttime,name FROM cd.bookings INNER JOIN cd.facilities ON cd.facilities.facid =cd.bookings.facid WHERE name ILIKE '%tennis%' AND starttime = '2012-09-21';
+SELECT starttime,name FROM cd.bookings INNER JOIN cd.facilities ON cd.facilities.facid =cd.bookings.facid WHERE name ILIKE '%tennis%' AND starttime >= '2012-09-21' AND starttime < '2012-09-22' order by starttime ;
+SELECT starttime,name FROM cd.bookings INNER JOIN cd.facilities ON cd.facilities.facid =cd.bookings.facid WHERE cd.facilities.facid IN (0,1) AND
+starttime >= '2012-09-21' AND starttime < '2012-09-22' order by starttime;
+
+
+--How can you produce a list of the start times for bookings by members named 'David Farrell'?
+SELECT * FROM cd.bookings;
+SELECT * FROM cd.facilities;
+SELECT * FROM cd.members;
+SELECT starttime,firstname,surname FROM cd.bookings INNER JOIN cd.members ON cd.members.memid =cd.bookings.memid WHERE firstname ILIKE 'david' AND surname ILIKE 'farrell';
+
+
