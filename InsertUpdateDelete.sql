@@ -14,3 +14,25 @@ SELECT * FROM link WHERE name ='google';
 INSERT INTO link_copy 
 SELECT * FROM link WHERE name ILIKE 'bing';
 
+
+--UPDATE DATA
+SELECT * FROM link;
+UPDATE link SET description ='testing';
+
+--UPDATE DATA USING CONDITIONS
+SELECT * FROM link;
+UPDATE link SET description ='Name starts with an f' WHERE name ILIKE 'f%';
+
+
+--SET ONE COLUMN TYPE EQUAL TO ANOTHER ONE
+UPDATE link SET description = name;
+
+--RETURN DATA IMMEDIATELY
+UPDATE link SET description ='New desc' WHERE name='google'
+RETURNING id,name,description,rel;
+
+--DELETE
+DELETE FROM link WHERE name ILIKE 'B%' RETURNING *;
+
+
+
