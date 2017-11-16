@@ -11,3 +11,7 @@ ALTER TABLE link RENAME COLUMN name TO title;
 --ALTER TABLE NAME
 ALTER TABLE link RENAME TO url_collection;
 SELECT * FROM url_collection;
+
+--DROP TABLE
+SELECT * FROM link_copy;
+DROP TABLE IF EXISTS link_copy;
