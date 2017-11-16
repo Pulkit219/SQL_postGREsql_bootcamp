@@ -1,0 +1,13 @@
+--ALTER
+SELECT * FROM link;
+ALTER TABLE link ADD COLUMN logic boolean;
+
+--DROP COLUMN
+ALTER TABLE link DROP COLUMN logic;
+
+--RENAME COLUMN
+ALTER TABLE link RENAME COLUMN name TO title;
+
+--ALTER TABLE NAME
+ALTER TABLE link RENAME TO url_collection;
+SELECT * FROM url_collection;
