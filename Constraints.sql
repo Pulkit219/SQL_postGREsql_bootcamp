@@ -23,4 +23,22 @@ id serial PRIMARY KEY,
 SELECT * FROM new_users_copy;
 INSERT INTO new_users_copy(first_name,birth_date,join_date,salary) VALUES('Joe','1991-02-02','2011-05-02',0);
 
---
+--NOT NULL CONSTRAINT
+CREATE TABLE learn_null(
+first_name VARCHAR(100),
+    sales integer NOT NULL
+);
+
+
+INSERT INTO learn_null(first_name) VALUES('JOhn');
+
+
+--UNIQUE CONSRAINT
+CREATE TABLE people(
+id serial PRIMARY KEY,
+    first_name VARCHAR(50),
+    email VARCHAR(100) UNIQUE
+);
+SELECT * FROM people;
+INSERT INTO people (id,first_name,email) VALUES(1,'Joe','joe@gmail.com');
+INSERT INTO people (id,first_name,email) VALUES(2,'Rock','joe@gmail.com');
