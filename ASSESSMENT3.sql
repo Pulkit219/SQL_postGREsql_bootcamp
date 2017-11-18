@@ -33,3 +33,6 @@ VALUES ('Mark','Watney',5,'7755551234',2035,'student@stu.com');
 INSERT INTO teachers(first_name,last_name, 
 homeroom_number,department,email,phone)
 VALUES ('Jonas','Salk',5,'Biology','jsalk@school.org','7755554321');
+
+SELECT * FROM teachers;
+SELECT * FROM students;
